@@ -20,4 +20,3 @@ import { ReCaptchaComponent } from './re-captcha/re-captcha.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
