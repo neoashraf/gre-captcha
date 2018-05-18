@@ -6,14 +6,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./re-captcha.component.css']
 })
 export class ReCaptchaComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit() {
   }
 
-  resolved(captchaResponse: string) {
-    console.log(`Resolved captcha with response ${captchaResponse}:`);
+
+  onLoginSubmit(): void {
+    console.log("success");
+  }
+
+  recaptchaStr = '';
+  onLoginClick(captchaRef: any): void {
+    if (this.recaptchaStr) {
+      captchaRef.reset();
+    }
+    captchaRef.execute();
+  }
+
+  public resolved(captchaResponse: string): void {
+    this.recaptchaStr = captchaResponse;
+    if (this.recaptchaStr) {
+      this.onLoginSubmit();
+    }
   }
 
 }

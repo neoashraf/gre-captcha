@@ -1,1 +1,4 @@
-<re-captcha (resolved)="resolved($event)" siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU"></re-captcha>`
+<form>
+  <re-captcha #captchaRef (resolved)="resolved($event)" required></re-captcha>
+  <button (click)="onLoginClick(captchaRef)">Submit</button>
+</form>
