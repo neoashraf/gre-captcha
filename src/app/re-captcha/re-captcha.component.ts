@@ -1,23 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-re-captcha',
   templateUrl: './re-captcha.component.html',
   styleUrls: ['./re-captcha.component.css']
 })
-export class ReCaptchaComponent implements OnInit {
-  
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 
-  onLoginSubmit(): void {
-    console.log("success");
-  }
+export class ReCaptchaComponent{
+
+  @Output() reCaptcha = new EventEmitter();
+
 
   recaptchaStr = '';
+
   onLoginClick(captchaRef: any): void {
     if (this.recaptchaStr) {
       captchaRef.reset();
@@ -28,7 +24,7 @@ export class ReCaptchaComponent implements OnInit {
   public resolved(captchaResponse: string): void {
     this.recaptchaStr = captchaResponse;
     if (this.recaptchaStr) {
-      this.onLoginSubmit();
+      this.reCaptcha.emit(this.recaptchaStr);
     }
   }
 

@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+  login(response:string){
+    if(response)
+      console.log("baaaaaaaaaal");
+  }
 }
